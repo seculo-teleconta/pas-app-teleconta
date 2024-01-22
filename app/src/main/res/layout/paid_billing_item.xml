@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="145dp"
+    android:paddingStart="12dp"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/paidBillingFinishDateLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Vencimento: "
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/paidBillingFinishDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="10-08-2023"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/paidBillingFinishDateLabel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/valuePaidBillingLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Valor: "
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/paidBillingFinishDate"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/valuePaidBilling"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="75,00"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/valuePaidBillingLabel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/paidBillingPaidDateLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Data Pagamento: "
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paidBillingFinishDateLabel" />
+
+    <TextView
+        android:id="@+id/paidBillingPaidDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:text="08-08-2023"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/paidBillingPaidDateLabel"
+        app:layout_constraintTop_toBottomOf="@+id/paidBillingFinishDate"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/paidBillingPaidValueLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Valor Pago: "
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@+id/paidBillingPaidDateLabel"
+        tools:layout_editor_absoluteX="0dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/paidBillingPaidValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="12dp"
+        android:text="75,00"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/paidBillingPaidValueLabel"
+        app:layout_constraintTop_toBottomOf="@+id/paidBillingPaidDateLabel"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/paidBillingFeeValueLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="12dp"
+        android:text="Juros: "
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/paidBillingPaidValue"
+        app:layout_constraintTop_toBottomOf="@+id/paidBillingPaidDate"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/paidBillingFeeValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="0,00"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/paidBillingFeeValueLabel"
+        app:layout_constraintTop_toBottomOf="@+id/paidBillingPaidDate"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/paidBillingIdTerminalLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Linha: "
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@+id/paidBillingPaidValueLabel"
+        tools:layout_editor_absoluteX="1dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/paidBillingIdTerminal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="13dp"
+        android:text="(31)99503-4455"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/paidBillingIdTerminalLabel"
+        app:layout_constraintTop_toBottomOf="@+id/paidBillingPaidValue"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
