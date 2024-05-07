@@ -1,4 +1,4 @@
-package com.example.firstapp_tutorial.api
+package com.example.teleconta.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

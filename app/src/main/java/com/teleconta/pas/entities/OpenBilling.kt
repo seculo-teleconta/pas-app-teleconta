@@ -1,6 +1,4 @@
-package com.example.firstapp_tutorial.entities
-
-import java.util.Date
+package com.example.teleconta.entities
 
 data class OpenBilling (
     val id: Long,

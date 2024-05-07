@@ -1,4 +1,4 @@
-package com.example.firstapp_tutorial.entities
+package com.example.teleconta.entities
 
 data class PaidBilling(
     val ourNumber: Long,

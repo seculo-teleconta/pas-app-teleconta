@@ -1,8 +1,8 @@
-package com.example.firstapp_tutorial.api
+package com.example.teleconta.api
 
-import com.example.firstapp_tutorial.entities.OpenBilling
-import com.example.firstapp_tutorial.entities.PaidBilling
-import com.example.firstapp_tutorial.entities.User
+import com.example.teleconta.entities.OpenBilling
+import com.example.teleconta.entities.PaidBilling
+import com.example.teleconta.entities.User
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

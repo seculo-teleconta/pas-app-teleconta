@@ -1,7 +1,7 @@
-package com.example.firstapp_tutorial.managers
+package com.example.teleconta.managers
 
-import com.example.firstapp_tutorial.api.RetrofitInstance
-import com.example.firstapp_tutorial.entities.User
+import com.example.teleconta.api.RetrofitInstance
+import com.example.teleconta.entities.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

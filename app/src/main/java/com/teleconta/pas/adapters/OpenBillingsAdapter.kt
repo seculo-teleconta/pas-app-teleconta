@@ -1,14 +1,12 @@
-package com.example.firstapp_tutorial.adapters
+package com.example.teleconta.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.firstapp_tutorial.R
-import com.example.firstapp_tutorial.entities.OpenBilling
-import java.text.SimpleDateFormat
-import java.util.Locale
+import com.example.teleconta.R
+import com.example.teleconta.entities.OpenBilling
 
 class OpenBillingsAdapter(private val billings: List<OpenBilling>) :
     RecyclerView.Adapter<OpenBillingsAdapter.OpenBillingViewHolder>() {

@@ -1,4 +1,4 @@
-package com.example.firstapp_tutorial
+package com.example.teleconta
 
 import org.junit.Test
 

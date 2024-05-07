@@ -1,4 +1,4 @@
-package com.example.firstapp_tutorial.activities
+package com.example.teleconta.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,11 +7,10 @@ import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.firstapp_tutorial.managers.LoginManager
-import com.example.firstapp_tutorial.R
-import com.example.firstapp_tutorial.entities.User
+import com.example.teleconta.managers.LoginManager
+import com.example.teleconta.R
+import com.example.teleconta.entities.User
 
 class MainActivity : AppCompatActivity(), LoginManager.LoginCallback {
 
@@ -19,6 +18,7 @@ class MainActivity : AppCompatActivity(), LoginManager.LoginCallback {
     private lateinit var loginButton: Button
     private lateinit var welcomeTextView: TextView
     private lateinit var loginManager: LoginManager
+    private lateinit var closeAppButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity(), LoginManager.LoginCallback {
         loginButton = findViewById(R.id.loginButton)
         loginButton.isEnabled = false
         welcomeTextView = findViewById(R.id.textHello)
+        closeAppButton = findViewById(R.id.closeAppButton)
 
         loginManager = LoginManager(this)
 
@@ -54,11 +55,16 @@ class MainActivity : AppCompatActivity(), LoginManager.LoginCallback {
             val cpf = loginInput.text.toString().replace("[./-]".toRegex(), "")
             if (cpf.isNotBlank()) {
                 loginButton.isEnabled = false
+                welcomeTextView.text = ""
                 loginManager.performLogin(cpf)
             } else {
                 loginButton.isEnabled = false
                 welcomeTextView.text = "Digite o cpf ou cnpj"
             }
+        }
+
+        closeAppButton.setOnClickListener {
+            closeApp()
         }
     }
 
@@ -76,6 +82,10 @@ class MainActivity : AppCompatActivity(), LoginManager.LoginCallback {
             else if (cleanedCpf.length < 12){
                 return cleanedCpf.substring(0,3) + "." + cleanedCpf.substring(3, 6) + "." +
                         cleanedCpf.substring(6, 9) + "-" + cleanedCpf.substring(9,cleanedCpf.length)
+            }
+            else if(cleanedCpf.length < 13){
+                return cleanedCpf.substring(0,2) + "." + cleanedCpf.substring(2,5) + "." +
+                        cleanedCpf.substring(5,8) + "/" + cleanedCpf.substring(8, 12)
             }
             else if(cleanedCpf.length < 15){
                 return cleanedCpf.substring(0,2) + "." + cleanedCpf.substring(2,5) + "." +
@@ -101,6 +111,7 @@ class MainActivity : AppCompatActivity(), LoginManager.LoginCallback {
 
         intent.putExtra("CPF_DATA", user.cpf)
         intent.putExtra("NAME_DATA", user.name)
+        intent.putExtra("NICK_DATA", user.nick)
 
         startActivity(intent)
 
@@ -110,5 +121,9 @@ class MainActivity : AppCompatActivity(), LoginManager.LoginCallback {
     override fun onLoginFailure(errorMessage: String) {
         welcomeTextView.text = "Cpf/Cnpj não encontrado"
         //Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun closeApp(){
+        finishAffinity()
     }
 }

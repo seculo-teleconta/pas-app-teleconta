@@ -1,4 +1,4 @@
-package com.example.firstapp_tutorial.entities
+package com.example.teleconta.entities
 
 data class User(
     val id: Long,
