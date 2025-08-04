@@ -1,13 +1,14 @@
-package com.example.teleconta.adapters
+package com.teleconta.pas.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
-import com.example.teleconta.entities.PaidBilling
+import com.teleconta.pas.entities.PaidBilling
 import androidx.recyclerview.widget.RecyclerView
-import com.example.teleconta.R
+import com.teleconta.pas.R
 
 class PaidBillingAdapter(private val billings: List<PaidBilling>) :
     RecyclerView.Adapter<PaidBillingAdapter.PaidBillingViewHolder>() {

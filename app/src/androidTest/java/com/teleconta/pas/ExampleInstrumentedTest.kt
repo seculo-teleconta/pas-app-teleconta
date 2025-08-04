@@ -1,4 +1,4 @@
-package com.example.teleconta
+package com.teleconta.pas
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

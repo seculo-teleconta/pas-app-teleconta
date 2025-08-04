@@ -1,4 +1,4 @@
-package com.example.teleconta.entities
+package com.teleconta.pas.entities
 
 data class PaidBilling(
     val ourNumber: Long,

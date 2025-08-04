@@ -1,7 +1,7 @@
-package com.example.teleconta.managers
+package com.teleconta.pas.managers
 
-import com.example.teleconta.api.RetrofitInstance
-import com.example.teleconta.entities.OpenBilling
+import com.teleconta.pas.api.RetrofitInstance
+import com.teleconta.pas.entities.OpenBilling
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

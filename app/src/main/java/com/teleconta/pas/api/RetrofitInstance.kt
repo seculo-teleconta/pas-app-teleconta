@@ -1,10 +1,10 @@
-package com.example.teleconta.api
+package com.teleconta.pas.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitInstance {
-    private const val BASE_URL = "https://app-pas-2bab9ff62ef0.herokuapp.com"
+    private const val BASE_URL = "https://pas-api-94f53f6b10d6.herokuapp.com"
 
     val api: ApiService by lazy {
         val retrofit = Retrofit.Builder()

@@ -1,4 +1,4 @@
-package com.example.teleconta.activities
+package com.teleconta.pas.activities
 
 import android.os.Bundle
 import android.widget.Button
@@ -6,10 +6,10 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.teleconta.R
-import com.example.teleconta.adapters.OpenBillingsAdapter
-import com.example.teleconta.entities.OpenBilling
-import com.example.teleconta.managers.OpenBillingsManager
+import com.teleconta.pas.R
+import com.teleconta.pas.adapters.OpenBillingsAdapter
+import com.teleconta.pas.entities.OpenBilling
+import com.teleconta.pas.managers.OpenBillingsManager
 
 class OpenBillingActivity : AppCompatActivity() , OpenBillingsManager.OpenBillingsCallback{
 
@@ -58,9 +58,14 @@ class OpenBillingActivity : AppCompatActivity() , OpenBillingsManager.OpenBillin
     }
 
     private fun displayBillings() {
-        val adapter = OpenBillingsAdapter(billings)
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        if(billings.size > 0){
+            val adapter = OpenBillingsAdapter(billings)
+            recyclerView.adapter = adapter
+            recyclerView.layoutManager = LinearLayoutManager(this)
+        }
+        else {
+            errorTextView.text = "Nenhuma conta em aberto encontrada";
+        }
     }
 
     private fun closeApp(){

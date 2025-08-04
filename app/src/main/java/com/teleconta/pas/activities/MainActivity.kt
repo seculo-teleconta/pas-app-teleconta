@@ -1,4 +1,4 @@
-package com.example.teleconta.activities
+package com.teleconta.pas.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,10 +7,12 @@ import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.teleconta.managers.LoginManager
-import com.example.teleconta.R
-import com.example.teleconta.entities.User
+import androidx.fragment.app.DialogFragment
+import com.teleconta.pas.managers.LoginManager
+import com.teleconta.pas.R
+import com.teleconta.pas.entities.User
 
 class MainActivity : AppCompatActivity(), LoginManager.LoginCallback {
 
@@ -29,6 +31,8 @@ class MainActivity : AppCompatActivity(), LoginManager.LoginCallback {
         loginButton.isEnabled = false
         welcomeTextView = findViewById(R.id.textHello)
         closeAppButton = findViewById(R.id.closeAppButton)
+
+        showAd()
 
         loginManager = LoginManager(this)
 
@@ -66,6 +70,11 @@ class MainActivity : AppCompatActivity(), LoginManager.LoginCallback {
         closeAppButton.setOnClickListener {
             closeApp()
         }
+    }
+
+    private fun showAd(){
+        val adFragment = AdFragment()
+        adFragment.show(supportFragmentManager, "AdFragment")
     }
 
     private fun formatCpf(cpf: String): String {

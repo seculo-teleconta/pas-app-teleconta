@@ -1,4 +1,4 @@
-package com.example.teleconta.activities
+package com.teleconta.pas.activities
 
 import android.os.Bundle
 import android.widget.Button
@@ -6,10 +6,10 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.teleconta.R
-import com.example.teleconta.adapters.PaidBillingAdapter
-import com.example.teleconta.entities.PaidBilling
-import com.example.teleconta.managers.PaidBillingsManager
+import com.teleconta.pas.R
+import com.teleconta.pas.adapters.PaidBillingAdapter
+import com.teleconta.pas.entities.PaidBilling
+import com.teleconta.pas.managers.PaidBillingsManager
 
 class PaidBillingsActivity: AppCompatActivity(), PaidBillingsManager.PaidBillingsCallBack {
 

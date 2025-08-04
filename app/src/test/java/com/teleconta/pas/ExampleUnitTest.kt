@@ -1,4 +1,4 @@
-package com.example.teleconta
+package com.teleconta.pas
 
 import org.junit.Test
 
