@@ -32,6 +32,20 @@
         app:layout_constraintTop_toBottomOf="@+id/loginInput"
         tools:ignore="MissingConstraints" />
 
+    <TextView
+        android:id="@+id/passwordError"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:text=""
+        android:textColor="@color/red"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.26"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginInputPassword"
+        tools:ignore="MissingConstraints" />
+
     <EditText
         android:id="@+id/loginInput"
         android:layout_width="300dp"
@@ -44,13 +58,39 @@
         app:layout_constraintStart_toStartOf="@+id/appBarLayout"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <EditText
+        android:id="@+id/loginInputPassword"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="404dp"
+        android:hint="Insira o sua senha"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/appBarLayout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/showPassword"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:text="Mostrar senha"
+        android:textSize="8dp"
+        android:theme="@style/Button_Blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.847"
+        app:layout_constraintStart_toStartOf="@id/loginInputPassword"
+        app:layout_constraintTop_toBottomOf="@+id/loginInputPassword" />
+
     <Button
         android:id="@+id/loginButton"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="272dp"
-        android:text="Login"
+        android:layout_marginBottom="132dp"
         android:background="@drawable/rounded_blue_button"
+        android:text="Login"
         android:theme="@style/Button_Blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

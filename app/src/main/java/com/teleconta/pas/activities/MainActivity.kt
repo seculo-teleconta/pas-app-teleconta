@@ -17,8 +17,11 @@ import com.teleconta.pas.entities.User
 class MainActivity : AppCompatActivity(), LoginManager.LoginCallback {
 
     private lateinit var loginInput: EditText
+    private lateinit var loginInputPassword: EditText
     private lateinit var loginButton: Button
+    private lateinit var showPasswordButton: Button
     private lateinit var welcomeTextView: TextView
+    private lateinit var passwordErrorText: TextView
     private lateinit var loginManager: LoginManager
     private lateinit var closeAppButton: Button
 
@@ -27,9 +30,12 @@ class MainActivity : AppCompatActivity(), LoginManager.LoginCallback {
         setContentView(R.layout.login)
 
         loginInput = findViewById(R.id.loginInput)
+        loginInputPassword = findViewById(R.id.loginInputPassword)
         loginButton = findViewById(R.id.loginButton)
+        showPasswordButton = findViewById(R.id.showPassword)
         loginButton.isEnabled = false
         welcomeTextView = findViewById(R.id.textHello)
+        passwordErrorText = findViewById(R.id.passwordError)
         closeAppButton = findViewById(R.id.closeAppButton)
 
         showAd()
@@ -57,14 +63,43 @@ class MainActivity : AppCompatActivity(), LoginManager.LoginCallback {
 
         loginButton.setOnClickListener {
             val cpf = loginInput.text.toString().replace("[./-]".toRegex(), "")
-            if (cpf.isNotBlank()) {
+            val password = loginInputPassword.text.toString()
+
+            if (cpf.isNotBlank() && password.isNotBlank()) {
                 loginButton.isEnabled = false
                 welcomeTextView.text = ""
-                loginManager.performLogin(cpf)
+                passwordErrorText.text = ""  // clear previous error
+                loginManager.performLoginWithPassword(cpf, password)
             } else {
                 loginButton.isEnabled = false
-                welcomeTextView.text = "Digite o cpf ou cnpj"
+                if (cpf.isBlank()) {
+                    welcomeTextView.text = "Digite o CPF ou CNPJ"
+                }
+                if (password.isBlank()) {
+                    passwordErrorText.text = "Digite a senha"
+                }
             }
+        }
+
+        var isPasswordVisible = false
+
+        showPasswordButton.setOnClickListener {
+            if (isPasswordVisible) {
+                // Hide password
+                loginInputPassword.inputType =
+                    android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
+                showPasswordButton.text = "Mostrar senha"
+            } else {
+                // Show password
+                loginInputPassword.inputType =
+                    android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                showPasswordButton.text = "Ocultar senha"
+            }
+
+            // Keep cursor at the end
+            loginInputPassword.setSelection(loginInputPassword.text.length)
+
+            isPasswordVisible = !isPasswordVisible
         }
 
         closeAppButton.setOnClickListener {
@@ -128,9 +163,15 @@ class MainActivity : AppCompatActivity(), LoginManager.LoginCallback {
     }
 
     override fun onLoginFailure(errorMessage: String) {
-        welcomeTextView.text = "Cpf/Cnpj não encontrado"
-        //Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
+        // If API says it's about password, show in passwordErrorText
+        if (errorMessage.contains("Senha", ignoreCase = true)) {
+            passwordErrorText.text = errorMessage
+        } else {
+            welcomeTextView.text = errorMessage
+        }
+        loginButton.isEnabled = true
     }
+
 
     private fun closeApp(){
         finishAffinity()

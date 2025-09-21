@@ -1,6 +1,7 @@
 package com.teleconta.pas.api
 
 import com.teleconta.pas.entities.CreateSolicitationResponse
+import com.teleconta.pas.entities.LoginDAO
 import com.teleconta.pas.entities.OpenBilling
 import com.teleconta.pas.entities.PaidBilling
 import com.teleconta.pas.entities.PhoneLine
@@ -20,6 +21,9 @@ interface ApiService {
 
     @GET("/login/{cpf}")
     suspend fun login(@Path("cpf") cpf: String): Response<User>
+
+    @POST("/login")
+    suspend fun loginPassword(@Body loginDAO: LoginDAO): Response<User>
 
     @GET("/open-billings/{cpf}")
     suspend fun getOpenBillings(@Path("cpf") cpf: String): Response<List<OpenBilling>>

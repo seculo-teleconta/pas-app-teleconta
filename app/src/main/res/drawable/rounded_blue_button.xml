@@ -1,0 +1,20 @@
+<!-- res/drawable/rounded_blue_button.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Default state -->
+    <item android:state_pressed="false">
+        <shape>
+            <solid android:color="@color/blue" />
+            <corners android:radius="18dp" /> <!-- Adjust the radius as needed for the desired roundness -->
+        </shape>
+    </item>
+
+    <!-- Pressed state -->
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="@color/darker_blue" />
+            <corners android:radius="18dp" />
+        </shape>
+    </item>
+
+</selector>

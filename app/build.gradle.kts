@@ -11,8 +11,8 @@ android {
         applicationId = "com.teleconta.pas"
         minSdk = 24
         targetSdk = 35
-        versionCode = 8
-        versionName = "8.0"
+        versionCode = 11
+        versionName = "11.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

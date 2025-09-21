@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/include5"
+        layout="@layout/base" />
+
+    <TextView
+        android:id="@+id/newSolicitation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="71dp"
+        android:text="Nova solicitação"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/createSolicitationTitleInput"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:hint="Insira o título"
+        android:layout_marginTop="120dp"
+        android:inputType="text"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newSolicitation" />
+
+    <EditText
+        android:id="@+id/createSolicitationDescriptionInput"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:inputType="text"
+        android:hint="Insira a descrição"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createSolicitationTitleInput" />
+
+    <Button
+        android:id="@+id/backBtnCreateSolicitationMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_blue_button"
+        android:text="Voltar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/createSolicitationSubmitButton"
+        android:layout_width="220dp"
+        android:layout_height="60dp"
+        android:text="Criar solicitação"
+        android:textSize="18sp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createSolicitationDescriptionInput" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
