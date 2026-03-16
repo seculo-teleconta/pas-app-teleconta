@@ -7,12 +7,10 @@ import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.DialogFragment
-import com.teleconta.pas.managers.LoginManager
 import com.teleconta.pas.R
 import com.teleconta.pas.entities.User
+import com.teleconta.pas.managers.LoginManager
 
 class MainActivity : AppCompatActivity(), LoginManager.LoginCallback {
 
@@ -24,6 +22,7 @@ class MainActivity : AppCompatActivity(), LoginManager.LoginCallback {
     private lateinit var passwordErrorText: TextView
     private lateinit var loginManager: LoginManager
     private lateinit var closeAppButton: Button
+    private lateinit var forgotPasswordButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +36,7 @@ class MainActivity : AppCompatActivity(), LoginManager.LoginCallback {
         welcomeTextView = findViewById(R.id.textHello)
         passwordErrorText = findViewById(R.id.passwordError)
         closeAppButton = findViewById(R.id.closeAppButton)
+        forgotPasswordButton = findViewById(R.id.forgotPasswordButton)
 
         showAd()
 
@@ -105,6 +105,11 @@ class MainActivity : AppCompatActivity(), LoginManager.LoginCallback {
         closeAppButton.setOnClickListener {
             closeApp()
         }
+
+        forgotPasswordButton.setOnClickListener {
+            val intent = Intent(this, ResetPasswordActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun showAd(){
@@ -139,16 +144,6 @@ class MainActivity : AppCompatActivity(), LoginManager.LoginCallback {
         }
         return cleanedCpf
     }
-
-    // cpf
-    // 0 9 7 9 8 4 4 8 6 0 0
-    // 0 1 2 3 4 5 6 7 8 9 0
-    // length = 11 (+1)
-
-    // cnpj
-    // 0 7 2 8 2 2 7 8 0 0 0 1 4 8
-    // 0 1 2 3 4 5 6 7 8 9 0 1 2 3
-    // length = 14 (+1)
 
     override fun onLoginSuccess(user: User) {
         val intent = Intent(this, HomeActivity::class.java)

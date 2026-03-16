@@ -6,6 +6,7 @@ import com.teleconta.pas.entities.OpenBilling
 import com.teleconta.pas.entities.PaidBilling
 import com.teleconta.pas.entities.PhoneLine
 import com.teleconta.pas.entities.PhoneServices
+import com.teleconta.pas.entities.ResetPasswordResponse
 import com.teleconta.pas.entities.Solicitation
 import com.teleconta.pas.entities.SolicitationDAO
 import com.teleconta.pas.entities.SolicitationType
@@ -48,4 +49,7 @@ interface ApiService {
 
     @POST("/create-solicitation")
     suspend fun createSolicitation(@Body solicitationDAO: SolicitationDAO): Response<CreateSolicitationResponse>
+
+    @POST("/request-new-password/{cpf}")
+    suspend fun requestNewPassword(@Path("cpf") cpf: String): Response<ResetPasswordResponse>
 }
