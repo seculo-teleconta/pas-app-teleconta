@@ -51,9 +51,9 @@ class AdFragment : DialogFragment() {
     private fun startImageUpdate() {
         val server = "ftp.seculoteleconta.com.br"
         val port = 21
-        val user = "seculotele"
-        val pass = "S3cul@"
-        val remoteFilePath = "/seculoteleconta.com.br/web/pas_app_image/pas_ad2.jpg"
+        val user = "rtlt1i2v"
+        val pass = "m0S2xv80hH"
+        val remoteFilePath = "/public_html/pas_app_image/pas_ad2.jpg"
         val localFilePath = requireContext().filesDir.absolutePath + "/image.jpg"
 
         Thread {
